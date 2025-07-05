@@ -4,7 +4,7 @@ import Speed from "../components/VehicleIndicators/Speed";
 import Direction from "../components/VehicleIndicators/Direction";
 import Battery from "../components/VehicleIndicators/Battery";
 import InclinationPanel from "../components/InclinationPanel";
-import ControlPanel from "../components/ControlPanel";
+import ControlPanel from "../components/ControlPanel/ControlPanel";
 import MainLayout from "../layouts/MainLayout";
 
 export default function Dashboard() {

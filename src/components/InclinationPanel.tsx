@@ -1,16 +1,26 @@
+import { useVehicleData } from "../contexts/VehicleDataContext";
+
 export default function InclinationPanel() {
+  const { data } = useVehicleData();
+
   return (
-    <div className="bg-white rounded-lg shadow p-4 text-center h-full flex flex-col justify-between">
-      <h2 className="font-semibold mb-4">Eğim</h2>
-      <div className="flex justify-around text-lg">
-        <div>
-          <p className="text-gray-600">Yatay</p>
-          <p className="text-blue-600 font-bold">5.2°</p>
+    <div className="flex flex-col md:flex-row gap-6 items-center justify-around">
+      {/* Önden Görünüm (Pitch) */}
+      <div className="flex flex-col items-center">
+        <div className="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center shadow"
+             style={{ transform: `rotateX(${data.pitch}deg) rotateZ(0deg)` }}>
+          <span className="text-sm font-semibold">Ön</span>
         </div>
-        <div>
-          <p className="text-gray-600">Dikey</p>
-          <p className="text-blue-600 font-bold">-1.8°</p>
+        <p className="mt-2 text-sm text-gray-700">Pitch: {data.pitch.toFixed(1)}°</p>
+      </div>
+
+      {/* Yandan Görünüm (Roll) */}
+      <div className="flex flex-col items-center">
+        <div className="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center shadow"
+             style={{ transform: `rotateZ(${data.roll}deg)` }}>
+          <span className="text-sm font-semibold">Yan</span>
         </div>
+        <p className="mt-2 text-sm text-gray-700">Roll: {data.roll.toFixed(1)}°</p>
       </div>
     </div>
   );
